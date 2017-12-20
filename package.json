@@ -1,0 +1,32 @@
+{
+  "name": "shapeshift_nodejs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "sudo MODE=DEV supervisor bin/www"
+  },
+  "dependencies": {
+    "async": "^2.4.1",
+    "debug": "^2.6.3",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-favicon": "^2.0.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^2.0.1",
+    "koa-onerror": "^1.2.1",
+    "koa-router": "^7.1.1",
+    "koa-sslify": "^2.1.2",
+    "log4js": "^1.1.1",
+    "path": "^0.12.7",
+    "redis-connection-pool": "^1.6.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1",
+    "nodemon": "^1.8.1",
+    "supertest": "^3.0.0"
+  }
+}
