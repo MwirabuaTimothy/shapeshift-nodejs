@@ -20,7 +20,7 @@ error code:
 
 ## APIs
 
-### get trade rates
+### trade rates only
 
 Method:
 ```
@@ -43,16 +43,47 @@ Response data:
   data: {
     "eth_mot": {
       rate: 1.234,
-      tradeAddress: 0xabc...xyz,
     },
     "eth_knc": {
       rate: 1.234,
-      tradeAddress: 0xabc...xyz,
     },
     ...
   }
 }
 ```
 
+### trade info
 
-### execute trade
+Method:
+```
+POST /trades
+```
+
+Request data:
+```
+[
+  "eth_mot",
+  "eth_knc",
+  ...
+]
+```
+
+Response data:
+```
+{
+  error: [ErrorObject](#Error),
+  data: {
+    "eth_mot": {
+      rate: 1.234,
+      limit: 124,
+      tradeAddress: 0xabc...xyz,
+    },
+    "eth_knc": {
+      rate: 1.234,
+      limit: 124,
+      tradeAddress: 0xabc...xyz,
+    },
+    ...
+  }
+}
+```
