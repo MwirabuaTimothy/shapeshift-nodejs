@@ -20,6 +20,9 @@ error code:
 
 ## APIs
 
+- [get rates](#trade-rates-only)
+- [get trade info](#trade-info)
+
 ### trade rates only
 
 Method:
@@ -39,7 +42,7 @@ Request data:
 Response data:
 ```
 {
-  error: [ErrorObject](#Error),
+  error: ErrorObject,
   data: {
     "eth_mot": {
       rate: 1.234,
@@ -71,7 +74,7 @@ Request data:
 Response data:
 ```
 {
-  error: [ErrorObject](#Error),
+  error: ErrorObject,
   data: {
     "eth_mot": {
       rate: 1.234,
