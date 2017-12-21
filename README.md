@@ -2,7 +2,7 @@
 
 ## Base URI
 
-`https://api.olympuslabs.io/shapeshift`
+`https://api.olympuslabs.io/shapeshift/v1`
 
 ## Error
 

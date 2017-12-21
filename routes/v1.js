@@ -1,5 +1,5 @@
 const router = require('koa-router')()
-router.prefix('/v1');
+router.prefix('/shapeshift/v1');
 
 let v1 = require('../controller/v1');
 
