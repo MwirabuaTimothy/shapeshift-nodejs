@@ -243,19 +243,12 @@ Shapeshift.prototype.validateAddress = async (address, coinSymbol) => {
  * @returns {Promise<void>}
  */
 Shapeshift.prototype.shift = async (args) => {
+    console.log(args);
     return new Promise(function(resolve,reject){
         request.post({
             url : `${conf.method}://${conf.domain}/shift`,
-            json : true,
             headers: {'Content-Type':'application/json'},
-            body : {
-                withdrawal : args.withdrawal,
-                pair : args.pair,
-                returnAddress : args.returnAddress,
-                destTag : args.destTag,
-                rsAddress : args.rsAddress,
-                apiKey : args.apiKey
-            }
+            json : args
         },function(err,res){
             if(err) {
                 reject(err);
@@ -278,12 +271,8 @@ Shapeshift.prototype.mail = async (args) => {
     return new Promise(function(resolve,reject){
         request.post({
             url : `${conf.method}://${conf.domain}/mail`,
-            json : true,
             headers: {'Content-Type':'application/json'},
-            body : {
-                email : args.email,
-                txid : args.txid
-            }
+            json : args
         },function(err,res){
             if(err) {
                 reject(err);
@@ -311,17 +300,8 @@ Shapeshift.prototype.sendamount = async (args) => {
     return new Promise(function(resolve,reject){
         request.post({
             url : `${conf.method}://${conf.domain}/sendamount`,
-            json : true,
             headers: {'Content-Type':'application/json'},
-            body : {
-                amount : args.amount,
-                withdrawal : args.withdrawal,
-                pair : args.pair,
-                returnAddress : args.returnAddress,
-                destTag : args.destTag,
-                rsAddress : args.rsAddress,
-                apiKey: args.apiKey
-            }
+            json : args
         },function(err,res){
             if(err) {
                 reject(err);
@@ -343,11 +323,8 @@ Shapeshift.prototype.cancelpending = async (args) => {
     return new Promise(function(resolve,reject){
         request.post({
             url : `${conf.method}://${conf.domain}/cancelpending`,
-            json : true,
             headers: {'Content-Type':'application/json'},
-            body : {
-                address : args.address
-            }
+            json : args
         },function(err,res){
             if(err) {
                 reject(err);

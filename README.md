@@ -18,7 +18,7 @@ error code:
 - 0: success
 - 1001: params invalid
 - 2001: api failed
-
+- 3001: order failed
 ## APIs
 
 - [get rates](#trade-rates-only)
@@ -78,6 +78,7 @@ Response data:
     pair : "btc_ltc",
     rate : "70.1234",
     limit : "1.2345",
+    min : "0.00018916",
     deposit: [Deposit Address (or memo field if input coin is BTS / BITUSD)],
     depositType: [Deposit Type (input coin symbol)],
     withdrawal: [Withdrawal Address], //-- will match address submitted in post
