@@ -28,7 +28,7 @@ error code:
 
 Method:
 ```
-POST /v1/rates
+POST /rates
 ```
 
 Request data:
@@ -61,7 +61,7 @@ Response data:
 
 Method:
 ```
-GET /v1/trades/[address]/[pair]
+GET /trades/[address]/[pair]
 ```
 
 Request data:
@@ -75,19 +75,22 @@ Response data:
 {
   errorCode: 0,
   data: {
-    pair : "btc_ltc",
-    rate : "70.1234",
-    limit : "1.2345",
-    min : "0.00018916",
-    deposit: [Deposit Address (or memo field if input coin is BTS / BITUSD)],
-    depositType: [Deposit Type (input coin symbol)],
-    withdrawal: [Withdrawal Address], //-- will match address submitted in post
-    withdrawalType: [Withdrawal Type (output coin symbol)],
-    public: [NXT RS-Address pubkey (if input coin is NXT)],
-    xrpDestTag : [xrpDestTag (if input coin is XRP)],
-    apiPubKey: [public API attached to this shift, if one was given]},
+    info : {
+        pair : "btc_ltc",
+        rate : "70.1234",
+        limit : "1.2345",
+        min : "0.00018916",
+    },
+    order : {
+        deposit: [Deposit Address (or memo field if input coin is BTS / BITUSD)],
+        depositType: [Deposit Type (input coin symbol)],
+        withdrawal: [Withdrawal Address], //-- will match address submitted in post
+        withdrawalType: [Withdrawal Type (output coin symbol)],
+        public: [NXT RS-Address pubkey (if input coin is NXT)],
+        xrpDestTag : [xrpDestTag (if input coin is XRP)],
+        apiPubKey: [public API attached to this shift, if one was given]},
+    }
   }
 }
-example data: {"withdrawal":"AAAAAAAAAAAAA", "pair":"btc_ltc", returnAddress:"BBBBBBBBBBB"}
 
 ```
