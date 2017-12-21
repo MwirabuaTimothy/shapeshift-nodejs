@@ -4,11 +4,11 @@ const async = require('async');
 const results = require('../utils/results');
 const errorCode = require('../utils/error_code');
 
-exports.index = async (ctx, next) => {
+exports.index = async (ctx) => {
     ctx.body = 'Shapeshift api v1.0'
 }
 
-exports.queryRate = async (ctx, next) => {
+exports.queryRate = async (ctx) => {
     let pairs = ctx.request.body.pairs;
 
     if ((pairs.constructor) !== Array || pairs.length < 1) {
@@ -17,17 +17,17 @@ exports.queryRate = async (ctx, next) => {
 
     var rates = {};
 
-    let processer = (value, index,callback) => {
+    try {
+        let processer = (value, index,callback) => {
             shapeshift.rate(value).then((result) => {
                 rates[result.body.pair] = result.body.rate;
                 callback();
             }).catch((err) => {
                 callback(err);
             });
-    }
-    try {
+        }
         let res = await new Promise((resolve, reject) => {
-            async.eachOfLimit(pairs, 10, processer, function (err) {
+            async.eachOfLimit(pairs, 10, processer, (err) => {
                 if (err) reject(err);
                 resolve(rates);
             });
