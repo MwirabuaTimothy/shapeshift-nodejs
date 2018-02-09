@@ -2,7 +2,7 @@
 
 ## Base URI
 
-`https://localhost/shapeshift/v1`
+`https://localhost:8080/shapeshift/v1`
 
 ## Error
 
